@@ -1,0 +1,17 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+
+py_binary(
+    name = "whisper",
+    srcs = glob(["**/*.py"]),
+    main_module = "whisper",
+    data = glob(["assets/**"]),
+    deps = [
+        "@pypi//numba",
+        "@pypi//numpy",
+        "@pypi//torch",
+        "@pypi//tqdm",
+        "@pypi//more_itertools",
+        "@pypi//tiktoken",
+        "@pypi//triton",
+    ],
+)
